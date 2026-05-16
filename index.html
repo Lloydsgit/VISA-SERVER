@@ -1,22 +1,25 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YOUR BRAND — Tagline Here</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Sovereign Server — Institutional Transaction Infrastructure</title>
+  <meta name="description" content="Modern server-based transaction infrastructure for verified institutional partners. Cloud execution, structured settlement, full audit trail." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- ========== ANNOUNCEMENT BAR ========== -->
+  <!-- ANNOUNCEMENT BAR -->
   <div class="announcement-bar">
-    <p>Old announcement copy here — <a href="#">Read announcement →</a></p>
+    <p>Sovereign Server is now live at this address — same platform, new home. <a href="article-announcement.html">Read announcement →</a></p>
   </div>
 
-  <!-- ========== NAVBAR ========== -->
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="nav-container">
-      <a href="/" class="logo">YOUR LOGO</a>
+      <a href="index.html" class="logo">SOVEREIGN SERVER</a>
       <nav class="nav-links">
         <a href="#overview">Overview</a>
         <a href="#benefits">Benefits</a>
@@ -24,140 +27,146 @@
         <a href="#pricing">Pricing</a>
         <a href="#chart">Market Chart</a>
         <a href="#transactions">Recent Activity</a>
-        <a href="#articles">Articles</a>
-        <a href="/docs">Docs</a>
+        <a href="articles.html">Articles</a>
+        <a href="docs.html">Docs</a>
       </nav>
-      <a href="/login" class="btn btn-primary">Client Login</a>
+      <a href="#pricing" class="btn btn-primary">Client Login</a>
       <button class="hamburger" aria-label="Menu">☰</button>
     </div>
   </header>
 
-  <!-- ========== HERO ========== -->
-  <section class="hero" id="overview">
+  <!-- HERO -->
+  <section class="hero" id="overview" style="padding: 120px 0 80px; text-align: center;">
     <div class="container">
-      <h1 class="hero-title">YOUR BRAND NAME</h1>
-      <p class="hero-subtitle">
-        Your one-line product positioning. Keep it under 25 words. Lead with what changes for the user.
+      <h1 class="animate-in" style="font-size: 56px; font-weight: 800; letter-spacing: 2px; margin-bottom: 24px;">SOVEREIGN SERVER</h1>
+      <p class="animate-in delay-1" style="font-size: 18px; color: var(--text-secondary); max-width: 720px; margin: 0 auto 40px;">
+        Modern, server-based infrastructure for verified institutional partners. Run structured transaction flows from anywhere, track every step through the member dashboard, and proceed directly to settlement — without legacy terminal hardware.
       </p>
-      <div class="hero-ctas">
+      <div class="animate-in delay-2" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
         <a href="#pricing" class="btn btn-primary">Request Access</a>
         <a href="#flow" class="btn btn-outline">See How It Works</a>
       </div>
     </div>
   </section>
 
-  <!-- ========== VALUE PROPOSITION ========== -->
-  <section class="value-prop" id="benefits">
-    <div class="container">
-      <h2>Your Big Promise Headline</h2>
-      <p class="lead">
-        Paragraph explaining the core mechanism in confident, technical-sounding language.
-        2-3 sentences max.
+  <!-- VALUE PROPOSITION -->
+  <section id="benefits" style="padding: 80px 0;">
+    <div class="container-narrow" style="text-align: center;">
+      <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Direct Cloud Execution. Auditable End-to-End.</h2>
+      <p style="font-size: 18px; max-width: 800px; margin: 0 auto; color: var(--text-secondary);">
+        Sovereign Server delivers structured transaction processing through a managed cloud interface. Every operator action is authenticated, every flow is logged, and every settlement carries a unique digital signature for full traceability.
       </p>
     </div>
   </section>
 
-  <!-- ========== FLOW (4-step process) ========== -->
-  <section class="flow" id="flow">
+  <!-- FLOW -->
+  <section id="flow" style="padding: 80px 0; background: var(--bg-secondary);">
     <div class="container">
-      <h2>From X to Y — in Four Steps</h2>
-      <p class="section-subtitle">Clear, efficient, and fully auditable.</p>
+      <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px; text-align: center;">From Initiation to Settlement — in Four Steps</h2>
+      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 48px;">Clear, structured, and fully auditable at every stage.</p>
 
-      <div class="flow-grid">
-        <article class="flow-card">
-          <span class="step-number">1</span>
-          <h3>Step One Title</h3>
-          <p>Step one description — what the user does or what happens.</p>
-        </article>
-        <article class="flow-card">
-          <span class="step-number">2</span>
-          <h3>Step Two Title</h3>
-          <p>Step two description.</p>
-        </article>
-        <article class="flow-card">
-          <span class="step-number">3</span>
-          <h3>Step Three Title</h3>
-          <p>Step three description.</p>
-        </article>
-        <article class="flow-card">
-          <span class="step-number">4</span>
-          <h3>Step Four Title</h3>
-          <p>Step four description.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
 
-  <!-- ========== PRICING ========== -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <h2>Access Plans &amp; Pricing</h2>
-      <p class="section-subtitle">Aligned to your operational scale.</p>
-
-      <div class="pricing-toggle">
-        <button class="toggle-btn active" data-tab="credit">Credit Plans</button>
-        <button class="toggle-btn" data-tab="annual">Annual Plans</button>
-      </div>
-
-      <div class="pricing-grid">
-
-        <article class="price-card">
-          <h3>Starter</h3>
-          <p class="price">$X<span>per Y</span></p>
-          <ul class="features">
-            <li>Feature one</li>
-            <li>Feature two</li>
-            <li>Feature three</li>
-            <li>Email Support</li>
-          </ul>
-          <a href="#" class="btn btn-outline">Get Starter</a>
+        <article style="background: var(--bg-card); padding: 32px 24px; border-radius: 12px; border: 1px solid var(--border);">
+          <span style="display:inline-block; width: 40px; height: 40px; background: var(--accent); color: var(--bg-primary); border-radius: 50%; font-weight: 700; text-align: center; line-height: 40px; margin-bottom: 16px;">1</span>
+          <h3 style="font-size: 18px; margin-bottom: 12px;">Operator Input</h3>
+          <p style="color: var(--text-secondary); font-size: 14px;">Authorized operator initiates a new flow from the secure member dashboard and provides the required parameters.</p>
         </article>
 
-        <article class="price-card featured">
-          <span class="badge">Most Popular</span>
-          <h3>Sovereign</h3>
-          <p class="price">$X<span>per Y</span></p>
-          <ul class="features">
-            <li>Everything in Starter</li>
-            <li>Feature five</li>
-            <li>Feature six</li>
-            <li>24/7 Support</li>
-          </ul>
-          <a href="#" class="btn btn-primary">Choose Sovereign</a>
+        <article style="background: var(--bg-card); padding: 32px 24px; border-radius: 12px; border: 1px solid var(--border);">
+          <span style="display:inline-block; width: 40px; height: 40px; background: var(--accent); color: var(--bg-primary); border-radius: 50%; font-weight: 700; text-align: center; line-height: 40px; margin-bottom: 16px;">2</span>
+          <h3 style="font-size: 18px; margin-bottom: 12px;">Data Verification</h3>
+          <p style="color: var(--text-secondary); font-size: 14px;">Session metadata is retrieved and displayed for review — issuer details, reference fields, and operator confirmations.</p>
         </article>
 
-        <article class="price-card">
-          <h3>Professional</h3>
-          <p class="price">$X<span>per Y</span></p>
-          <ul class="features">
-            <li>Mid-tier feature one</li>
-            <li>Mid-tier feature two</li>
-            <li>Priority Support</li>
-          </ul>
-          <a href="#" class="btn btn-outline">Choose Professional</a>
+        <article style="background: var(--bg-card); padding: 32px 24px; border-radius: 12px; border: 1px solid var(--border);">
+          <span style="display:inline-block; width: 40px; height: 40px; background: var(--accent); color: var(--bg-primary); border-radius: 50%; font-weight: 700; text-align: center; line-height: 40px; margin-bottom: 16px;">3</span>
+          <h3 style="font-size: 18px; margin-bottom: 12px;">Authorization &amp; Processing</h3>
+          <p style="color: var(--text-secondary); font-size: 14px;">After the approval code is entered, the platform processes the request through the secure execution pipeline.</p>
         </article>
 
-        <article class="price-card enterprise">
-          <h3>Enterprise</h3>
-          <p class="price">$X<span>/ year</span></p>
-          <ul class="features">
-            <li>All Sovereign Features</li>
-            <li>No preset cap</li>
-            <li>Dedicated Support</li>
-          </ul>
-          <a href="#" class="btn btn-outline">Choose Enterprise</a>
+        <article style="background: var(--bg-card); padding: 32px 24px; border-radius: 12px; border: 1px solid var(--border);">
+          <span style="display:inline-block; width: 40px; height: 40px; background: var(--accent); color: var(--bg-primary); border-radius: 50%; font-weight: 700; text-align: center; line-height: 40px; margin-bottom: 16px;">4</span>
+          <h3 style="font-size: 18px; margin-bottom: 12px;">Settlement Report</h3>
+          <p style="color: var(--text-secondary); font-size: 14px;">The result is shown instantly with a transaction ID and digital signature. Approved flows proceed directly to settlement.</p>
         </article>
 
       </div>
     </div>
   </section>
 
-  <!-- ========== MARKET CHART (TradingView embed) ========== -->
-  <section class="chart" id="chart">
+  <!-- PRICING -->
+  <section id="pricing" style="padding: 80px 0;">
     <div class="container">
-      <h2>Live Market Performance</h2>
-      <div class="tradingview-widget-container">
-        <!-- Paste TradingView's official embed snippet here. It's free and legal. -->
+      <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px; text-align: center;">Access Plans &amp; Pricing</h2>
+      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 48px;">Credit-based access aligned to your operational volume and settlement workflow.</p>
+
+      <div style="display: flex; justify-content: center; gap: 8px; margin-bottom: 48px; background: var(--bg-card); padding: 6px; border-radius: 8px; width: fit-content; margin-left: auto; margin-right: auto;">
+        <button class="toggle-btn active" data-tab="credit" style="padding: 10px 24px; background: var(--accent); color: var(--bg-primary); border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600;">Credit Plans</button>
+        <button class="toggle-btn" data-tab="annual" style="padding: 10px 24px; background: transparent; color: var(--text-secondary); border: none; border-radius: 6px; cursor: pointer; font-size: 14px;">Annual Plans</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+
+        <article style="background: var(--bg-card); padding: 40px 28px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column;">
+          <h3 style="font-size: 22px; margin-bottom: 8px;">Starter</h3>
+          <p style="font-size: 32px; font-weight: 700; margin: 16px 0 24px;">$2,500<span style="font-size: 14px; color: var(--text-secondary); font-weight: 400;"> for 3 Credits</span></p>
+          <ul style="list-style: none; margin-bottom: 32px; flex-grow: 1;">
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> Standard Protocol Access</li>
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> 4 &amp; 6-Digit Code Handling</li>
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> Per-Flow Limit: Standard Tier</li>
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> Email Support</li>
+          </ul>
+          <a href="#" class="btn btn-outline" style="justify-content: center;">Get Starter</a>
+        </article>
+
+        <article style="background: var(--bg-card); padding: 40px 28px; border-radius: 12px; border: 2px solid var(--accent); display: flex; flex-direction: column; position: relative; transform: scale(1.03);">
+          <span style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--bg-primary); padding: 4px 16px; border-radius: 20px; font-size: 12px; font-weight: 700;">Most Popular</span>
+          <h3 style="font-size: 22px; margin-bottom: 8px;">Sovereign</h3>
+          <p style="font-size: 32px; font-weight: 700; margin: 16px 0 24px;">$5,000<span style="font-size: 14px; color: var(--text-secondary); font-weight: 400;"> for 3 Credits</span></p>
+          <ul style="list-style: none; margin-bottom: 32px; flex-grow: 1;">
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> All Professional Features</li>
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> Bank &amp; Crypto Payout</li>
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> Per-Flow Limit: No Preset Cap</li>
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> 24/7 Priority Support</li>
+          </ul>
+          <a href="#" class="btn btn-primary" style="justify-content: center;">Choose Sovereign</a>
+        </article>
+
+        <article style="background: var(--bg-card); padding: 40px 28px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column;">
+          <h3 style="font-size: 22px; margin-bottom: 8px;">Professional</h3>
+          <p style="font-size: 32px; font-weight: 700; margin: 16px 0 24px;">$3,500<span style="font-size: 14px; color: var(--text-secondary); font-weight: 400;"> for 3 Credits</span></p>
+          <ul style="list-style: none; margin-bottom: 32px; flex-grow: 1;">
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> Extended Protocol Access</li>
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> Remote Execution Capability</li>
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> Higher Per-Flow Limits</li>
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> Priority Support</li>
+          </ul>
+          <a href="#" class="btn btn-outline" style="justify-content: center;">Choose Professional</a>
+        </article>
+
+        <article style="background: var(--bg-card); padding: 40px 28px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column;">
+          <h3 style="font-size: 22px; margin-bottom: 8px;">Enterprise</h3>
+          <p style="font-size: 32px; font-weight: 700; margin: 16px 0 24px;">$80,000<span style="font-size: 14px; color: var(--text-secondary); font-weight: 400;"> / year</span></p>
+          <ul style="list-style: none; margin-bottom: 32px; flex-grow: 1;">
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> All Sovereign Features</li>
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> Unlimited Annual Access</li>
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> No Preset Cap</li>
+            <li style="padding: 8px 0; color: var(--text-secondary); font-size: 14px;"><span style="color: var(--accent); font-weight: 700;">✓</span> Dedicated Account Manager</li>
+          </ul>
+          <a href="#" class="btn btn-outline" style="justify-content: center;">Choose Enterprise</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKET CHART -->
+  <section id="chart" style="padding: 80px 0; background: var(--bg-secondary);">
+    <div class="container">
+      <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px; text-align: center;">Live Market Performance</h2>
+      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 48px;">Real-time market data streamed directly from public exchanges.</p>
+      <div style="height: 500px;">
         <div id="tradingview_widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
         <script type="text/javascript">
@@ -175,74 +184,149 @@
     </div>
   </section>
 
-  <!-- ========== RECENT TRANSACTIONS / ACTIVITY ========== -->
-  <section class="transactions" id="transactions">
+  <!-- TRANSACTIONS -->
+  <section id="transactions" style="padding: 80px 0;">
     <div class="container">
-      <h2>Recent Platform Activity</h2>
-      <p class="section-subtitle">A transparent look at recent platform-verified events.</p>
+      <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px; text-align: center;">Recent Platform Activity</h2>
+      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 48px;">A transparent look at recent platform-verified events from across our partner network.</p>
 
-      <div class="table-wrapper">
-        <table class="data-table">
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse;">
           <thead>
             <tr>
-              <th>User</th>
-              <th>Type</th>
-              <th>Provider</th>
-              <th>Country</th>
-              <th>Reference</th>
-              <th>Amount</th>
+              <th style="padding: 16px; text-align: left; border-bottom: 1px solid var(--border); color: var(--accent); font-weight: 600; font-size: 14px;">Operator</th>
+              <th style="padding: 16px; text-align: left; border-bottom: 1px solid var(--border); color: var(--accent); font-weight: 600; font-size: 14px;">Protocol</th>
+              <th style="padding: 16px; text-align: left; border-bottom: 1px solid var(--border); color: var(--accent); font-weight: 600; font-size: 14px;">Provider</th>
+              <th style="padding: 16px; text-align: left; border-bottom: 1px solid var(--border); color: var(--accent); font-weight: 600; font-size: 14px;">Region</th>
+              <th style="padding: 16px; text-align: left; border-bottom: 1px solid var(--border); color: var(--accent); font-weight: 600; font-size: 14px;">Reference</th>
+              <th style="padding: 16px; text-align: left; border-bottom: 1px solid var(--border); color: var(--accent); font-weight: 600; font-size: 14px;">Amount</th>
             </tr>
           </thead>
-          <tbody id="transactions-body">
-            <!-- Rows injected via JS from your real backend -->
+          <tbody style="color: var(--text-secondary); font-size: 14px;">
+            <tr><td style="padding: 16px; border-bottom: 1px solid var(--border);">OP-812</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">STD-201</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">Northern Bank Ltd</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">EU</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">****8008</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">$1,250,000</td></tr>
+            <tr><td style="padding: 16px; border-bottom: 1px solid var(--border);">OP-651</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">STD-101</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">Asia Commercial</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">APAC</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">****4414</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">$840,000</td></tr>
+            <tr><td style="padding: 16px; border-bottom: 1px solid var(--border);">OP-410</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">STD-201</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">Continental Trust</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">NA</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">****4200</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">€2,100,000</td></tr>
+            <tr><td style="padding: 16px; border-bottom: 1px solid var(--border);">OP-571</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">STD-101</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">Southern Credit Co</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">SA</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">****2206</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">$960,000</td></tr>
+            <tr><td style="padding: 16px; border-bottom: 1px solid var(--border);">OP-995</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">STD-201</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">Atlantic Reserve</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">LATAM</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">****6600</td><td style="padding: 16px; border-bottom: 1px solid var(--border);">€1,500,000</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
-  <!-- ========== ARTICLES ========== -->
-  <section class="articles" id="articles">
+  <!-- ARTICLES -->
+  <section id="articles" style="padding: 80px 0; background: var(--bg-secondary);">
     <div class="container">
-      <h2>Articles &amp; Insights</h2>
-      <div class="articles-grid">
+      <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px; text-align: center;">Articles &amp; Insights</h2>
+      <p style="text-align: center; color: var(--text-secondary); margin-bottom: 48px;">Technical guides and plain-English explainers on payments infrastructure.</p>
 
-        <article class="article-card">
-          <span class="tag">Category</span>
-          <time>May 14, 2026</time>
-          <h3>Article Title Goes Here</h3>
-          <p>Short excerpt under 25 words.</p>
-          <a href="#" class="read-more">Read More →</a>
-        </article>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
 
-        <!-- Repeat article-card 3-4 more times -->
+        <a href="article-l2l-ilp.html" style="background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border); text-decoration: none; color: inherit; transition: all var(--duration-base) var(--ease); display: flex; flex-direction: column;">
+          <span style="color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Industry Knowledge</span>
+          <time style="color: var(--text-muted); font-size: 12px; margin-left: 12px;">May 14, 2026</time>
+          <h3 style="margin: 16px 0 12px; font-size: 18px; color: var(--text-primary);">Ledger to Ledger (L2L) and the Interledger Protocol</h3>
+          <p style="color: var(--text-secondary); font-size: 14px; flex-grow: 1;">A plain-English guide to how banks actually move money between ledgers — explained with a glossary.</p>
+          <span style="color: var(--accent); text-decoration: none; font-size: 14px; margin-top: 12px;">Read More →</span>
+        </a>
+
+        <a href="article-announcement.html" style="background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border); text-decoration: none; color: inherit; transition: all var(--duration-base) var(--ease); display: flex; flex-direction: column;">
+          <span style="color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Announcement</span>
+          <time style="color: var(--text-muted); font-size: 12px; margin-left: 12px;">May 8, 2026</time>
+          <h3 style="margin: 16px 0 12px; font-size: 18px; color: var(--text-primary);">Platform Has Moved to a New Domain</h3>
+          <p style="color: var(--text-secondary); font-size: 14px; flex-grow: 1;">Official announcement about our domain consolidation. Same platform, same login, new home.</p>
+          <span style="color: var(--accent); text-decoration: none; font-size: 14px; margin-top: 12px;">Read More →</span>
+        </a>
+
+        <a href="article-protocol-101.html" style="background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border); text-decoration: none; color: inherit; transition: all var(--duration-base) var(--ease); display: flex; flex-direction: column;">
+          <span style="color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Platform Guide</span>
+          <time style="color: var(--text-muted); font-size: 12px; margin-left: 12px;">August 20, 2025</time>
+          <h3 style="margin: 16px 0 12px; font-size: 18px; color: var(--text-primary);">How Card Transaction Protocols Actually Work</h3>
+          <p style="color: var(--text-secondary); font-size: 14px; flex-grow: 1;">Step-by-step walkthrough of the real protocol stack — from card swipe to settlement.</p>
+          <span style="color: var(--accent); text-decoration: none; font-size: 14px; margin-top: 12px;">Read More →</span>
+        </a>
+
+        <a href="article-mt103.html" style="background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border); text-decoration: none; color: inherit; transition: all var(--duration-base) var(--ease); display: flex; flex-direction: column;">
+          <span style="color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Industry Knowledge</span>
+          <time style="color: var(--text-muted); font-size: 12px; margin-left: 12px;">August 24, 2025</time>
+          <h3 style="margin: 16px 0 12px; font-size: 18px; color: var(--text-primary);">What is an MT103 Document?</h3>
+          <p style="color: var(--text-secondary); font-size: 14px; flex-grow: 1;">The SWIFT message format that powers most cross-border bank transfers, explained simply.</p>
+          <span style="color: var(--accent); text-decoration: none; font-size: 14px; margin-top: 12px;">Read More →</span>
+        </a>
+
+        <a href="article-ipip-ipid-stos.html" style="background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border); text-decoration: none; color: inherit; transition: all var(--duration-base) var(--ease); display: flex; flex-direction: column;">
+          <span style="color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Industry Knowledge</span>
+          <time style="color: var(--text-muted); font-size: 12px; margin-left: 12px;">January 3, 2026</time>
+          <h3 style="margin: 16px 0 12px; font-size: 18px; color: var(--text-primary);">Understanding IPIP, IPID, and StoS Transfers</h3>
+          <p style="color: var(--text-secondary); font-size: 14px; flex-grow: 1;">Key concepts in banking protocols decoded into plain language with a verification methodology.</p>
+          <span style="color: var(--accent); text-decoration: none; font-size: 14px; margin-top: 12px;">Read More →</span>
+        </a>
 
       </div>
     </div>
   </section>
 
-  <!-- ========== FOOTER ========== -->
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container">
-      <p>© 2026 Your Brand. All rights reserved.</p>
+    <div class="container footer-container">
+      <p>© 2026 Sovereign Server. All rights reserved.</p>
       <div class="footer-links">
-        <a href="/terms">Terms</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/contact">Contact</a>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Contact</a>
       </div>
     </div>
   </footer>
 
-  <!-- ========== SECURITY NOTICE MODAL ========== -->
-  <div class="modal" id="security-modal">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close">×</button>
-      <h3>Important Notice</h3>
-      <p>Your notice copy here. Keep it short and high-trust.</p>
-      <button class="btn btn-primary">I Understand</button>
+  <!-- SECURITY MODAL -->
+  <div class="modal" id="security-modal" style="display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); z-index: 1000; align-items: center; justify-content: center;">
+    <div style="background: var(--bg-card); padding: 40px; border-radius: 12px; max-width: 500px; position: relative; border: 1px solid var(--border);">
+      <button class="modal-close" aria-label="Close" style="position: absolute; top: 16px; right: 16px; background: none; border: none; color: var(--text-secondary); font-size: 24px; cursor: pointer;">×</button>
+      <h3 style="color: var(--accent); margin-bottom: 16px;">Important Security Notice</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 24px; line-height: 1.7;">
+        Sovereign Server is an independent platform. The only official source for our application and member dashboard is through this verified web portal. We are not responsible for any third-party software claiming to operate on our infrastructure. Always verify the domain before entering credentials.
+      </p>
+      <button class="btn btn-primary" onclick="document.getElementById('security-modal').style.display='none'">I Understand</button>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    // Pricing toggle
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.toggle-btn').forEach(b => {
+          b.style.background = 'transparent';
+          b.style.color = 'var(--text-secondary)';
+          b.style.fontWeight = '400';
+        });
+        btn.style.background = 'var(--accent)';
+        btn.style.color = 'var(--bg-primary)';
+        btn.style.fontWeight = '600';
+      });
+    });
+
+    // Show security modal after 1.5s
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('security-modal').style.display = 'flex';
+      }, 1500);
+    });
+
+    // Hamburger toggle
+    document.querySelector('.hamburger')?.addEventListener('click', () => {
+      document.querySelector('.nav-links')?.classList.toggle('mobile-open');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
