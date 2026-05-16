@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is an MT103 Document? A Plain-English Guide to SWIFT Messages | YOUR BRAND</title>
+  <meta name="description" content="What MT103 messages are, what each field means, how they get used in real cross-border transfers, and what's replacing them." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/article.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="announcement-bar">
+    <p>New article series live — <a href="/articles.html">Browse all articles →</a></p>
+  </div>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">YOUR BRAND</a>
+      <nav class="nav-links">
+        <a href="/#overview">Overview</a>
+        <a href="/#benefits">Benefits</a>
+        <a href="/#flow">Flow</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#chart">Market Chart</a>
+        <a href="/articles.html">Articles</a>
+        <a href="/docs.html">Docs</a>
+      </nav>
+      <a href="/login" class="btn btn-primary">Client Login</a>
+      <button class="hamburger" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <div class="container">
+
+      <nav class="breadcrumbs animate-fade">
+        <a href="/">Home</a>
+        <span class="separator">/</span>
+        <a href="/articles.html">Articles</a>
+        <span class="separator">/</span>
+        <span>What is an MT103?</span>
+      </nav>
+
+      <header class="article-header animate-in">
+        <h1 class="article-title">What is an MT103 Document? A Plain-English Guide to SWIFT Messages</h1>
+        <div class="article-meta">
+          <span class="tag">Industry Knowledge</span>
+          <span>Published: August 24, 2025</span>
+          <span>Read time: ~8 min</span>
+        </div>
+      </header>
+
+      <div class="article-layout animate-in delay-1">
+
+        <aside class="toc">
+          <h4>On This Page</h4>
+          <ul>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#what-is-mt103">What MT103 Actually Is</a></li>
+            <li><a href="#swift-basics">SWIFT in 60 Seconds</a></li>
+            <li><a href="#anatomy">Anatomy of an MT103</a></li>
+            <li><a href="#fields">Key Fields Explained</a></li>
+            <li><a href="#flow">How an MT103 Moves</a></li>
+            <li><a href="#instruction-vs-settlement">Instruction vs Settlement</a></li>
+            <li><a href="#gpi">SWIFT GPI Tracking</a></li>
+            <li><a href="#iso-20022">The ISO 20022 Migration</a></li>
+            <li><a href="#scam-warning">A Common Misconception</a></li>
+            <li><a href="#glossary">Glossary</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </aside>
+
+        <article class="article-body">
+
+          <section id="summary">
+            <h2>Summary</h2>
+            <p>
+              An MT103 is a SWIFT message that says "please move money from this account to that account." It's the most common instruction format for cross-border bank transfers, and most of the international wires you've ever sent or received traveled as an MT103 message between banks.
+            </p>
+            <p>
+              The single most important thing to know about it: an MT103 is an instruction, not the money itself. Receiving an MT103 doesn't mean funds have arrived. Settlement happens separately, through correspondent banking and central bank rails. This guide explains both halves clearly.
+            </p>
+          </section>
+
+          <section id="what-is-mt103">
+            <h2>What MT103 Actually Is</h2>
+            <p>
+              MT103 is the standard SWIFT message type for a single customer credit transfer. The "MT" stands for Message Type. The "103" identifies the specific format. When a bank in one country wants to instruct a bank in another country to credit a customer's account, it sends an MT103.
+            </p>
+            <p>
+              The format was designed in the 1970s and 1980s to be machine-readable, structured, and compact. Each MT103 message contains roughly 30 to 40 named fields covering who is sending, who is receiving, how much, in what currency, through which intermediaries, and what the payment is for.
+            </p>
+            <div class="callout">
+              <strong>Note.</strong> SWIFT (Society for Worldwide Interbank Financial Telecommunication) is a messaging cooperative, not a settlement network. It transmits instructions between banks. The actual money movement happens through correspondent banking relationships and national clearing systems.
+            </div>
+          </section>
+
+          <section id="swift-basics">
+            <h2>SWIFT in 60 Seconds</h2>
+            <ul>
+              <li><strong>Founded</strong> in 1973 in Brussels, owned by its member banks.</li>
+              <li><strong>Connects</strong> over 11,000 financial institutions in more than 200 countries.</li>
+              <li><strong>Identifies</strong> each member with an 8 or 11-character BIC (Bank Identifier Code), sometimes called a SWIFT code.</li>
+              <li><strong>Carries</strong> roughly 50 million financial messages per day.</li>
+              <li><strong>Does not</strong> hold funds, settle transactions, or operate as a bank. It moves messages.</li>
+            </ul>
+          </section>
+
+          <section id="anatomy">
+            <h2>Anatomy of an MT103</h2>
+            <p>
+              A SWIFT MT103 message is divided into five blocks:
+            </p>
+            <table>
+              <thead>
+                <tr><th>Block</th><th>Purpose</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Block 1</td><td>Basic header — sender BIC, session number.</td></tr>
+                <tr><td>Block 2</td><td>Application header — message type, receiver BIC, priority.</td></tr>
+                <tr><td>Block 3</td><td>User header — optional, includes the unique end-to-end reference (UETR) used for tracking.</td></tr>
+                <tr><td>Block 4</td><td>Text block — the actual payment instruction with all named fields.</td></tr>
+                <tr><td>Block 5</td><td>Trailer — security and routing metadata.</td></tr>
+              </tbody>
+            </table>
+            <p>
+              The text block (Block 4) is the meaningful part. It's a series of tagged fields like <code>:20:</code>, <code>:32A:</code>, <code>:50K:</code>, each carrying a specific piece of payment information.
+            </p>
+          </section>
+
+          <section id="fields">
+            <h2>Key Fields Explained</h2>
+            <table>
+              <thead>
+                <tr><th>Tag</th><th>Name</th><th>What It Holds</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>:20:</td><td>Sender's Reference</td><td>The sender bank's unique reference for this transaction.</td></tr>
+                <tr><td>:23B:</td><td>Bank Operation Code</td><td>Type of operation (usually CRED for credit transfer).</td></tr>
+                <tr><td>:32A:</td><td>Value Date / Currency / Amount</td><td>When funds should be available, the currency, and the amount.</td></tr>
+                <tr><td>:50A/F/K:</td><td>Ordering Customer</td><td>The person or company sending the money.</td></tr>
+                <tr><td>:52A/D:</td><td>Ordering Institution</td><td>The bank initiating the transfer on behalf of the customer.</td></tr>
+                <tr><td>:53A/B/D:</td><td>Sender's Correspondent</td><td>The bank holding the sender's nostro account in the receiver's currency.</td></tr>
+                <tr><td>:56A/C/D:</td><td>Intermediary Bank</td><td>Optional. A bank that helps route the payment when no direct relationship exists.</td></tr>
+                <tr><td>:57A/B/C/D:</td><td>Account With Institution</td><td>The bank where the beneficiary holds their account.</td></tr>
+                <tr><td>:59:</td><td>Beneficiary Customer</td><td>The final recipient — name and account number or IBAN.</td></tr>
+                <tr><td>:70:</td><td>Remittance Information</td><td>Free-text purpose of payment, invoice number, etc.</td></tr>
+                <tr><td>:71A:</td><td>Charges</td><td>Who pays the fees: OUR (sender), BEN (beneficiary), or SHA (shared).</td></tr>
+                <tr><td>:72:</td><td>Sender to Receiver Information</td><td>Additional instructions between the banks.</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="flow">
+            <h2>How an MT103 Moves</h2>
+            <p>
+              When you send an international wire transfer, here's what happens in the background:
+            </p>
+            <ol>
+              <li><strong>You initiate</strong> the transfer at your bank with the recipient's IBAN and SWIFT BIC.</li>
+              <li><strong>Your bank does compliance</strong> — KYC checks on you, sanctions screening on the beneficiary.</li>
+              <li><strong>Your bank constructs the MT103</strong> with all the required fields.</li>
+              <li><strong>The message travels through SWIFT</strong> — possibly via one or more intermediary banks if no direct correspondent relationship exists.</li>
+              <li><strong>Each intermediary screens it</strong> — compliance checks, sanctions screening, fee deduction.</li>
+              <li><strong>The beneficiary bank receives the MT103</strong> and does its own compliance check.</li>
+              <li><strong>Settlement happens separately</strong> — the actual cash moves between banks via correspondent nostro/vostro accounts or central bank rails.</li>
+              <li><strong>The beneficiary bank credits the customer's account</strong> only after settlement is confirmed.</li>
+            </ol>
+          </section>
+
+          <section id="instruction-vs-settlement">
+            <h2>Instruction vs Settlement</h2>
+            <p>
+              This is the single most misunderstood point about MT103. The message is an instruction. The settlement is the actual cash movement. They are not the same event.
+            </p>
+            <p>
+              An MT103 can be sent, received, and acknowledged — and the beneficiary may still see no funds in their account. That's because the receiving bank waits for the corresponding settlement to land in its nostro account at the relevant correspondent or central bank before crediting the beneficiary.
+            </p>
+            <div class="callout">
+              <strong>Why this matters.</strong> If someone shows you an "MT103 document" as proof of payment, that's not proof. It's proof an instruction was sent. The funds may have been blocked at compliance, recalled by the sender, or never settled. Always confirm with your own bank that funds have actually arrived before treating a transaction as complete.
+            </div>
+          </section>
+
+          <section id="gpi">
+            <h2>SWIFT GPI Tracking</h2>
+            <p>
+              In 2017, SWIFT launched GPI (Global Payments Innovation) to address the biggest complaint about MT103: opacity. With GPI, every payment carries a unique end-to-end transaction reference (UETR) that lets banks and customers track the payment through every intermediary in near real time.
+            </p>
+            <p>
+              GPI participation is now required for cross-border payments through SWIFT. As a customer, you can ask your bank for the UETR of any wire and use it to confirm where the payment is in its journey, when it was credited, and what fees were deducted along the way.
+            </p>
+          </section>
+
+          <section id="iso-20022">
+            <h2>The ISO 20022 Migration</h2>
+            <p>
+              MT103 is being replaced. The global banking industry is migrating from the legacy MT message family to ISO 20022, a more modern XML-based format that supports richer, structured data.
+            </p>
+            <p>
+              The ISO 20022 equivalent of MT103 is <code>pacs.008</code>. It carries the same payment information but in a format that allows structured remittance data, regulatory reporting, and clearer purpose-of-payment fields. The migration is happening in stages across major clearing systems:
+            </p>
+            <table>
+              <thead>
+                <tr><th>System</th><th>Region</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>TARGET2</td><td>Eurozone</td><td>Migrated 2023</td></tr>
+                <tr><td>CHAPS</td><td>United Kingdom</td><td>Migrated 2023</td></tr>
+                <tr><td>Fedwire</td><td>United States</td><td>Migrated March 2025</td></tr>
+                <tr><td>CHIPS</td><td>United States</td><td>Migrated 2024</td></tr>
+                <tr><td>SWIFT cross-border</td><td>Global</td><td>Coexistence period ended November 2025</td></tr>
+              </tbody>
+            </table>
+            <p>
+              MT103 messages are still being sent today by banks that haven't fully migrated, but new integrations should target <code>pacs.008</code> and the ISO 20022 message family.
+            </p>
+          </section>
+
+          <section id="scam-warning">
+            <h2>A Common Misconception</h2>
+            <p>
+              Search the internet for "MT103" and you'll find dozens of pages claiming to sell "MT103 documents" or "MT103 funds" to anyone willing to pay. None of them are legitimate.
+            </p>
+            <p>
+              An MT103 is not a financial instrument. It cannot be bought, owned, traded, or used as collateral. It's a message format that authorized banks use to instruct other authorized banks. Anyone offering to "send you an MT103" without operating as a licensed bank is offering something that either won't work or will be immediately reversed by the receiving bank's compliance team.
+            </p>
+            <div class="callout">
+              <strong>Rule of thumb.</strong> If an offer involves an MT103 plus a request for an upfront fee, it's the variant of advance-fee fraud known as "MT103 scams." The genuine SWIFT network is not accessible to non-bank entities, and no legitimate bank will accept an MT103 from a non-member.
+            </div>
+          </section>
+
+          <section id="glossary">
+            <h2>Glossary</h2>
+            <table>
+              <thead>
+                <tr><th>Term</th><th>Meaning</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>SWIFT</td><td>Society for Worldwide Interbank Financial Telecommunication — the cooperative that runs the messaging network.</td></tr>
+                <tr><td>BIC</td><td>Bank Identifier Code, 8 or 11 characters, identifies a specific bank branch.</td></tr>
+                <tr><td>IBAN</td><td>International Bank Account Number — a standardized account identifier used in most countries.</td></tr>
+                <tr><td>UETR</td><td>Unique End-to-End Transaction Reference — the 36-character ID used to track a payment.</td></tr>
+                <tr><td>Nostro</td><td>"Our account with you" — a bank's account held at a foreign correspondent.</td></tr>
+                <tr><td>Vostro</td><td>"Your account with us" — the mirror view.</td></tr>
+                <tr><td>GPI</td><td>Global Payments Innovation — SWIFT's tracking and speed initiative.</td></tr>
+                <tr><td>pacs.008</td><td>The ISO 20022 message type replacing MT103.</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <h3>How long does an MT103 take to deliver funds?</h3>
+            <p>
+              The message itself moves in seconds. The funds arrive on the value date specified in field <code>:32A:</code>, which is typically the same business day for same-currency transfers and one to three business days for cross-currency wires. Compliance holds, intermediary bank delays, and time zone gaps can extend this.
+            </p>
+
+            <h3>Can I get a copy of an MT103 for a wire I sent?</h3>
+            <p>
+              Yes. Your bank can provide a copy of the MT103 (sometimes called an MT103 confirmation) as proof that the instruction was sent. Note that this is proof of instruction, not proof of delivery to the beneficiary. For delivery confirmation, request the GPI tracking status using the UETR.
+            </p>
+
+            <h3>What's the difference between MT103 and MT202?</h3>
+            <p>
+              MT103 is for customer credit transfers (a person or company sending money to another person or company). MT202 is for financial institution transfers (a bank moving its own money to another bank, often for settlement). Customers see MT103. Banks use MT202 between themselves.
+            </p>
+
+            <h3>Will MT103 still exist in 2027?</h3>
+            <p>
+              Probably not for cross-border SWIFT messaging. The November 2025 cutover ended the coexistence period, and new cross-border traffic is on ISO 20022. Some domestic systems and bilateral arrangements may still use MT format, but the global trend is clearly toward pacs.008 and the broader ISO 20022 family.
+            </p>
+          </section>
+
+          <div style="display:flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--border);">
+            <a href="article-protocol-101.html" class="btn btn-outline">← Previous: Card Protocols</a>
+            <a href="article-ipip-ipid-stos.html" class="btn btn-primary">Next: IPIP, IPID, StoS →</a>
+          </div>
+
+        </article>
+      </div>
+
+      <section style="margin-top: var(--space-3xl); padding-top: var(--space-xl); border-top: 1px solid var(--border);">
+        <h3 style="font-size: 20px; margin-bottom: var(--space-lg); color: var(--text-primary);">Related Reading</h3>
+        <div class="articles-grid">
+
+          <a href="article-l2l-ilp.html" class="article-card">
+            <span class="tag">Industry Knowledge</span>
+            <time>May 14, 2026</time>
+            <h3>Ledger to Ledger (L2L) and the Interledger Protocol</h3>
+            <p>How banks actually move money between ledgers.</p>
+            <span class="read-more">Read More →</span>
+          </a>
+
+          <a href="article-ipip-ipid-stos.html" class="article-card">
+            <span class="tag">Industry Knowledge</span>
+            <time>January 3, 2026</time>
+            <h3>Understanding IPIP, IPID, and StoS Transfers</h3>
+            <p>Three banking acronyms decoded simply.</p>
+            <span class="read-more">Read More →</span>
+          </a>
+
+          <a href="article-protocol-101.html" class="article-card">
+            <span class="tag">Platform Guide</span>
+            <time>August 20, 2025</time>
+            <h3>How Card Transaction Protocols Actually Work</h3>
+            <p>The real stack from terminal to settlement.</p>
+            <span class="read-more">Read More →</span>
+          </a>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>© 2026 Your Brand. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/global.js"></script>
+</body>
+</html>
