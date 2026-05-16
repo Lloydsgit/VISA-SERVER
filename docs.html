@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation — YOUR BRAND</title>
+  <meta name="description" content="Official documentation for the platform, including system architecture, user guide, and developer API reference." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/article.css" />
+  <link rel="stylesheet" href="css/docs.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <p>Documentation v3.5.0 — <a href="#changelog">Read changelog →</a></p>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">YOUR BRAND</a>
+      <nav class="nav-links">
+        <a href="/#overview">Overview</a>
+        <a href="/#benefits">Benefits</a>
+        <a href="/#flow">Flow</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/articles.html">Articles</a>
+        <a href="/docs.html" class="active">Docs</a>
+      </nav>
+      <a href="/login" class="btn btn-primary">Client Login</a>
+      <button class="hamburger" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- DOCS LAYOUT: Sidebar + Content -->
+  <main class="docs-page">
+    <div class="docs-container">
+
+      <!-- LEFT SIDEBAR -->
+      <aside class="docs-sidebar">
+        <div class="docs-sidebar-inner">
+
+          <div class="sidebar-section">
+            <h4>Platform Documentation</h4>
+            <ul>
+              <li><a href="#introduction">1. Introduction</a></li>
+              <li><a href="#architecture">2. System Architecture</a></li>
+              <li><a href="#user-guide">3. User Guide</a></li>
+              <li><a href="#internal-endpoints">4. Internal Endpoints</a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-section">
+            <h4>Developer API Reference</h4>
+            <ul>
+              <li><a href="#api-intro">1. Introduction</a></li>
+              <li><a href="#sandbox-live">2. Sandbox vs Live</a></li>
+              <li><a href="#integration-flow">3. Integration Flow</a></li>
+              <li><a href="#get-token">4. Get Token Details</a></li>
+              <li><a href="#process-transaction">5. Process Transaction</a></li>
+              <li><a href="#list-protocols">6. List Protocols</a></li>
+              <li><a href="#bin-checker">7. BIN Checker</a></li>
+              <li><a href="#response-codes">8. Response Codes</a></li>
+              <li><a href="#example-code">9. Example Code</a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-footer">
+            <p class="muted">Application Version</p>
+            <p class="version">3.5.0</p>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <article class="docs-content">
+
+        <!-- PLATFORM DOCS SECTION -->
+
+        <section id="introduction" class="docs-section">
+          <span class="section-eyebrow">Platform Documentation</span>
+          <h1>1. Introduction</h1>
+          <p class="lead">
+            Welcome to the official documentation. This guide covers system architecture, user workflows, and API integration for authorized partners.
+          </p>
+
+          <h3>Key Features</h3>
+          <ul class="feature-list">
+            <li><strong>Direct Cloud Execution</strong> — server-driven transaction handling without dedicated terminal hardware.</li>
+            <li><strong>Secure Authentication</strong> — time-bound access tokens issued from the member dashboard.</li>
+            <li><strong>Global Payout Network</strong> — supports international bank transfers and digital wallet settlement.</li>
+            <li><strong>Multi-Brand Support</strong> — switchable processing modes per network.</li>
+            <li><strong>BIN Verification</strong> — issuer and card-type lookup before transaction submission.</li>
+            <li><strong>Secure Proxy Network</strong> — routed traffic via vetted regional nodes.</li>
+            <li><strong>Automatic Updates</strong> — version checks ensure clients run the verified build.</li>
+          </ul>
+        </section>
+
+        <section id="architecture" class="docs-section">
+          <h2>2. System Architecture &amp; Core Concepts</h2>
+
+          <h3>2.1. Authentication Flow</h3>
+          <p>
+            The system uses time-bound access tokens instead of persistent passwords. Tokens follow a three-step lifecycle:
+          </p>
+          <ol>
+            <li><strong>Preparation</strong> — operator configures a session via the member dashboard.</li>
+            <li><strong>Authentication</strong> — token submitted to the client; validated against the configuration endpoint.</li>
+            <li><strong>Consumption</strong> — token is single-use; consumed upon first transaction to prevent replay.</li>
+          </ol>
+
+          <h3>2.2. Supported Protocols</h3>
+          <p>The client exposes the following protocol options for selection at transaction time
