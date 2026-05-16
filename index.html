@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOUR BRAND — Tagline Here</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ========== ANNOUNCEMENT BAR ========== -->
+  <div class="announcement-bar">
+    <p>Old announcement copy here — <a href="#">Read announcement →</a></p>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">YOUR LOGO</a>
+      <nav class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#flow">Flow</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#chart">Market Chart</a>
+        <a href="#transactions">Recent Activity</a>
+        <a href="#articles">Articles</a>
+        <a href="/docs">Docs</a>
+      </nav>
+      <a href="/login" class="btn btn-primary">Client Login</a>
+      <button class="hamburger" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="overview">
+    <div class="container">
+      <h1 class="hero-title">YOUR BRAND NAME</h1>
+      <p class="hero-subtitle">
+        Your one-line product positioning. Keep it under 25 words. Lead with what changes for the user.
+      </p>
+      <div class="hero-ctas">
+        <a href="#pricing" class="btn btn-primary">Request Access</a>
+        <a href="#flow" class="btn btn-outline">See How It Works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VALUE PROPOSITION ========== -->
+  <section class="value-prop" id="benefits">
+    <div class="container">
+      <h2>Your Big Promise Headline</h2>
+      <p class="lead">
+        Paragraph explaining the core mechanism in confident, technical-sounding language.
+        2-3 sentences max.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== FLOW (4-step process) ========== -->
+  <section class="flow" id="flow">
+    <div class="container">
+      <h2>From X to Y — in Four Steps</h2>
+      <p class="section-subtitle">Clear, efficient, and fully auditable.</p>
+
+      <div class="flow-grid">
+        <article class="flow-card">
+          <span class="step-number">1</span>
+          <h3>Step One Title</h3>
+          <p>Step one description — what the user does or what happens.</p>
+        </article>
+        <article class="flow-card">
+          <span class="step-number">2</span>
+          <h3>Step Two Title</h3>
+          <p>Step two description.</p>
+        </article>
+        <article class="flow-card">
+          <span class="step-number">3</span>
+          <h3>Step Three Title</h3>
+          <p>Step three description.</p>
+        </article>
+        <article class="flow-card">
+          <span class="step-number">4</span>
+          <h3>Step Four Title</h3>
+          <p>Step four description.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2>Access Plans &amp; Pricing</h2>
+      <p class="section-subtitle">Aligned to your operational scale.</p>
+
+      <div class="pricing-toggle">
+        <button class="toggle-btn active" data-tab="credit">Credit Plans</button>
+        <button class="toggle-btn" data-tab="annual">Annual Plans</button>
+      </div>
+
+      <div class="pricing-grid">
+
+        <article class="price-card">
+          <h3>Starter</h3>
+          <p class="price">$X<span>per Y</span></p>
+          <ul class="features">
+            <li>Feature one</li>
+            <li>Feature two</li>
+            <li>Feature three</li>
+            <li>Email Support</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Get Starter</a>
+        </article>
+
+        <article class="price-card featured">
+          <span class="badge">Most Popular</span>
+          <h3>Sovereign</h3>
+          <p class="price">$X<span>per Y</span></p>
+          <ul class="features">
+            <li>Everything in Starter</li>
+            <li>Feature five</li>
+            <li>Feature six</li>
+            <li>24/7 Support</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Choose Sovereign</a>
+        </article>
+
+        <article class="price-card">
+          <h3>Professional</h3>
+          <p class="price">$X<span>per Y</span></p>
+          <ul class="features">
+            <li>Mid-tier feature one</li>
+            <li>Mid-tier feature two</li>
+            <li>Priority Support</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Choose Professional</a>
+        </article>
+
+        <article class="price-card enterprise">
+          <h3>Enterprise</h3>
+          <p class="price">$X<span>/ year</span></p>
+          <ul class="features">
+            <li>All Sovereign Features</li>
+            <li>No preset cap</li>
+            <li>Dedicated Support</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Choose Enterprise</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MARKET CHART (TradingView embed) ========== -->
+  <section class="chart" id="chart">
+    <div class="container">
+      <h2>Live Market Performance</h2>
+      <div class="tradingview-widget-container">
+        <!-- Paste TradingView's official embed snippet here. It's free and legal. -->
+        <div id="tradingview_widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+        <script type="text/javascript">
+          new TradingView.widget({
+            "autosize": true,
+            "symbol": "NYSE:V",
+            "interval": "D",
+            "theme": "dark",
+            "style": "1",
+            "locale": "en",
+            "container_id": "tradingview_widget"
+          });
+        </script>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RECENT TRANSACTIONS / ACTIVITY ========== -->
+  <section class="transactions" id="transactions">
+    <div class="container">
+      <h2>Recent Platform Activity</h2>
+      <p class="section-subtitle">A transparent look at recent platform-verified events.</p>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Type</th>
+              <th>Provider</th>
+              <th>Country</th>
+              <th>Reference</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody id="transactions-body">
+            <!-- Rows injected via JS from your real backend -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ARTICLES ========== -->
+  <section class="articles" id="articles">
+    <div class="container">
+      <h2>Articles &amp; Insights</h2>
+      <div class="articles-grid">
+
+        <article class="article-card">
+          <span class="tag">Category</span>
+          <time>May 14, 2026</time>
+          <h3>Article Title Goes Here</h3>
+          <p>Short excerpt under 25 words.</p>
+          <a href="#" class="read-more">Read More →</a>
+        </article>
+
+        <!-- Repeat article-card 3-4 more times -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Your Brand. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== SECURITY NOTICE MODAL ========== -->
+  <div class="modal" id="security-modal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">×</button>
+      <h3>Important Notice</h3>
+      <p>Your notice copy here. Keep it short and high-trust.</p>
+      <button class="btn btn-primary">I Understand</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
