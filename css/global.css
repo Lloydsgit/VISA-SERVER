@@ -1,33 +1,26 @@
-/* ============================================
-   GLOBAL DESIGN SYSTEM
-   Used by every page — import this first
-   ============================================ */
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  /* Color tokens */
-  --bg-primary: #0a0e1a;
-  --bg-secondary: #111827;
-  --bg-card: #1a1f2e;
-  --bg-elevated: #232a3d;
-  --accent: #00d4ff;
-  --accent-hover: #00b8e6;
-  --accent-dim: rgba(0, 212, 255, 0.15);
-  --text-primary: #f5f7fa;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
-  --border: #2a3142;
-  --border-strong: #3a4256;
-  --success: #10b981;
-  --warning: #f59e0b;
-  --danger: #ef4444;
+  /* Visa palette */
+  --bg-primary: #1A1F71;
+  --bg-secondary: #15184D;
+  --bg-card: #232873;
+  --bg-elevated: #2D3382;
+  --accent: #FAA61A;
+  --accent-hover: #E8930E;
+  --accent-dim: rgba(250, 166, 26, 0.15);
+  --text-primary: #FFFFFF;
+  --text-secondary: #B8BCD9;
+  --text-muted: #7A80A8;
+  --border: #2D3382;
+  --border-strong: #3D44A0;
+  --success: #10B981;
+  --warning: #FAA61A;
+  --danger: #EF4444;
 
-  /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
-  /* Spacing */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
@@ -36,13 +29,11 @@
   --space-2xl: 64px;
   --space-3xl: 96px;
 
-  /* Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
 
-  /* Animation */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --duration-fast: 150ms;
   --duration-base: 250ms;
@@ -62,9 +53,6 @@ body {
 .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-lg); }
 .container-narrow { max-width: 820px; margin: 0 auto; padding: 0 var(--space-lg); }
 
-/* ============================================
-   ANNOUNCEMENT BAR
-   ============================================ */
 .announcement-bar {
   background: linear-gradient(90deg, var(--bg-secondary), var(--bg-elevated), var(--bg-secondary));
   padding: 10px 0;
@@ -73,18 +61,11 @@ body {
   border-bottom: 1px solid var(--border);
   color: var(--text-secondary);
 }
-.announcement-bar a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 500;
-}
+.announcement-bar a { color: var(--accent); text-decoration: none; font-weight: 500; }
 .announcement-bar a:hover { text-decoration: underline; }
 
-/* ============================================
-   NAVBAR
-   ============================================ */
 .navbar {
-  background: rgba(10, 14, 26, 0.85);
+  background: rgba(26, 31, 113, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   position: sticky;
@@ -102,13 +83,12 @@ body {
 }
 .logo {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 2px;
-  color: var(--text-primary);
+  color: var(--accent);
   text-decoration: none;
   transition: color var(--duration-base) var(--ease);
 }
-.logo:hover { color: var(--accent); }
 .nav-links { display: flex; gap: var(--space-lg); align-items: center; }
 .nav-links a {
   color: var(--text-secondary);
@@ -130,9 +110,6 @@ body {
 .nav-links a:hover { color: var(--accent); }
 .nav-links a:hover::after { width: 100%; }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -140,7 +117,7 @@ body {
   padding: 12px 24px;
   border-radius: var(--radius-md);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   transition: all var(--duration-base) var(--ease);
   cursor: pointer;
@@ -150,11 +127,11 @@ body {
 .btn-primary {
   background: var(--accent);
   color: var(--bg-primary);
-  box-shadow: 0 0 24px rgba(0, 212, 255, 0.25);
+  box-shadow: 0 0 24px rgba(250, 166, 26, 0.3);
 }
 .btn-primary:hover {
   background: var(--accent-hover);
-  box-shadow: 0 0 32px rgba(0, 212, 255, 0.45);
+  box-shadow: 0 0 32px rgba(250, 166, 26, 0.5);
   transform: translateY(-1px);
 }
 .btn-outline {
@@ -173,9 +150,6 @@ body {
 }
 .btn-ghost:hover { color: var(--text-primary); border-color: var(--border-strong); }
 
-/* ============================================
-   FOOTER
-   ============================================ */
 .footer {
   padding: var(--space-xl) 0;
   border-top: 1px solid var(--border);
@@ -198,9 +172,6 @@ body {
 }
 .footer-links a:hover { color: var(--accent); }
 
-/* ============================================
-   MOBILE
-   ============================================ */
 .hamburger {
   display: none;
   background: none;
@@ -228,9 +199,6 @@ body {
   .footer-container { flex-direction: column; text-align: center; }
 }
 
-/* ============================================
-   ANIMATIONS (reusable)
-   ============================================ */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -238,10 +206,6 @@ body {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 24px rgba(0, 212, 255, 0.25); }
-  50% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.5); }
 }
 
 .animate-in { animation: fadeInUp var(--duration-slow) var(--ease) both; }
