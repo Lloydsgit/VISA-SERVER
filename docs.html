@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Documentation — YOUR BRAND</title>
-  <meta name="description" content="Official documentation for the platform, including system architecture, user guide, and developer API reference." />
+  <meta name="description" content="Official documentation for the platform — architecture, user guide, API reference." />
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/article.css" />
   <link rel="stylesheet" href="css/docs.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
   <!-- ANNOUNCEMENT BAR -->
   <div class="announcement-bar">
-    <p>Documentation v3.5.0 — <a href="#changelog">Read changelog →</a></p>
+    <p>Documentation v3.5.0 — <a href="/articles.html">Read the changelog →</a></p>
   </div>
 
   <!-- NAVBAR -->
@@ -24,7 +24,6 @@
       <a href="/" class="logo">YOUR BRAND</a>
       <nav class="nav-links">
         <a href="/#overview">Overview</a>
-        <a href="/#benefits">Benefits</a>
         <a href="/#flow">Flow</a>
         <a href="/#pricing">Pricing</a>
         <a href="/articles.html">Articles</a>
@@ -35,83 +34,484 @@
     </div>
   </header>
 
-  <!-- DOCS LAYOUT: Sidebar + Content -->
-  <main class="docs-page">
-    <div class="docs-container">
+  <!-- DOCS LAYOUT -->
+  <div class="docs-shell">
 
-      <!-- LEFT SIDEBAR -->
-      <aside class="docs-sidebar">
-        <div class="docs-sidebar-inner">
+    <!-- SIDEBAR NAV -->
+    <aside class="docs-sidebar">
+      <div class="sidebar-inner">
 
-          <div class="sidebar-section">
-            <h4>Platform Documentation</h4>
-            <ul>
-              <li><a href="#introduction">1. Introduction</a></li>
-              <li><a href="#architecture">2. System Architecture</a></li>
-              <li><a href="#user-guide">3. User Guide</a></li>
-              <li><a href="#internal-endpoints">4. Internal Endpoints</a></li>
-            </ul>
-          </div>
-
-          <div class="sidebar-section">
-            <h4>Developer API Reference</h4>
-            <ul>
-              <li><a href="#api-intro">1. Introduction</a></li>
-              <li><a href="#sandbox-live">2. Sandbox vs Live</a></li>
-              <li><a href="#integration-flow">3. Integration Flow</a></li>
-              <li><a href="#get-token">4. Get Token Details</a></li>
-              <li><a href="#process-transaction">5. Process Transaction</a></li>
-              <li><a href="#list-protocols">6. List Protocols</a></li>
-              <li><a href="#bin-checker">7. BIN Checker</a></li>
-              <li><a href="#response-codes">8. Response Codes</a></li>
-              <li><a href="#example-code">9. Example Code</a></li>
-            </ul>
-          </div>
-
-          <div class="sidebar-footer">
-            <p class="muted">Application Version</p>
-            <p class="version">3.5.0</p>
-          </div>
-
+        <div class="sidebar-brand">
+          <span class="brand-mark">YOUR BRAND</span>
+          <span class="version-pill">v3.5.0</span>
         </div>
-      </aside>
 
-      <!-- MAIN CONTENT -->
-      <article class="docs-content">
-
-        <!-- PLATFORM DOCS SECTION -->
-
-        <section id="introduction" class="docs-section">
-          <span class="section-eyebrow">Platform Documentation</span>
-          <h1>1. Introduction</h1>
-          <p class="lead">
-            Welcome to the official documentation. This guide covers system architecture, user workflows, and API integration for authorized partners.
-          </p>
-
-          <h3>Key Features</h3>
-          <ul class="feature-list">
-            <li><strong>Direct Cloud Execution</strong> — server-driven transaction handling without dedicated terminal hardware.</li>
-            <li><strong>Secure Authentication</strong> — time-bound access tokens issued from the member dashboard.</li>
-            <li><strong>Global Payout Network</strong> — supports international bank transfers and digital wallet settlement.</li>
-            <li><strong>Multi-Brand Support</strong> — switchable processing modes per network.</li>
-            <li><strong>BIN Verification</strong> — issuer and card-type lookup before transaction submission.</li>
-            <li><strong>Secure Proxy Network</strong> — routed traffic via vetted regional nodes.</li>
-            <li><strong>Automatic Updates</strong> — version checks ensure clients run the verified build.</li>
+        <div class="sidebar-section">
+          <h5>Platform Guide</h5>
+          <ul>
+            <li><a href="#introduction">1. Introduction</a></li>
+            <li><a href="#architecture">2. System Architecture</a></li>
+            <li><a href="#user-guide">3. User Guide</a></li>
+            <li><a href="#internal-endpoints">4. Internal Endpoints</a></li>
           </ul>
-        </section>
+        </div>
 
-        <section id="architecture" class="docs-section">
-          <h2>2. System Architecture &amp; Core Concepts</h2>
+        <div class="sidebar-section">
+          <h5>Developer API Reference</h5>
+          <ul>
+            <li><a href="#api-intro">1. Introduction</a></li>
+            <li><a href="#api-modes">2. Sandbox vs Live</a></li>
+            <li><a href="#api-flow">3. Integration Flow</a></li>
+            <li><a href="#api-token">4. Get Token Details</a></li>
+            <li><a href="#api-process">5. Process Transaction</a></li>
+            <li><a href="#api-protocols">6. List Protocols</a></li>
+            <li><a href="#api-bin">7. BIN Checker</a></li>
+            <li><a href="#api-codes">8. Response Codes</a></li>
+            <li><a href="#api-examples">9. Example Code</a></li>
+          </ul>
+        </div>
 
-          <h3>2.1. Authentication Flow</h3>
-          <p>
-            The system uses time-bound access tokens instead of persistent passwords. Tokens follow a three-step lifecycle:
-          </p>
+        <div class="sidebar-footer">
+          <p>© 2026 YOUR BRAND</p>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="docs-content">
+
+      <!-- SECTION 1: INTRODUCTION -->
+      <section id="introduction" class="docs-section">
+        <span class="section-badge">Platform Guide</span>
+        <h1>1. Introduction</h1>
+        <p class="lead">
+          Welcome to the platform documentation. This guide is for authorized partners and integrators who need direct access to the platform's transaction infrastructure through the desktop client and public API.
+        </p>
+
+        <h3>Key Features</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h4>Direct Cloud Execution</h4>
+            <p>Server-side transaction processing through the cloud rather than physical terminal hardware.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Secure Token Authentication</h4>
+            <p>Time-bound access tokens generated from the authenticated member dashboard.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Global Payout Network</h4>
+            <p>Settlement to international bank accounts via SWIFT and to crypto wallets on supported networks.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Multi-Brand Support</h4>
+            <p>The system can be switched between supported card brands within the client.</p>
+          </div>
+          <div class="feature-card">
+            <h4>BIN Checker</h4>
+            <p>Validate issuer, card type, and card level details before initiating a transaction.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Secure Proxy Network</h4>
+            <p>All connections routed via a managed proxy network for transport-layer security.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Automatic Updates</h4>
+            <p>The desktop application checks for and installs the latest version on launch.</p>
+          </div>
+          <div class="feature-card">
+            <h4>Verified Application</h4>
+            <p>Signed binaries ensure the application running on your machine is authentic.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: ARCHITECTURE -->
+      <section id="architecture" class="docs-section">
+        <h2>2. System Architecture &amp; Core Concepts</h2>
+        <p>Understand the building blocks before integrating.</p>
+
+        <h3 id="auth-flow">2.1 Authentication Flow (Access Token)</h3>
+        <p>The platform does not use traditional username and password logins. It uses time-bound, limited-use access tokens generated from the member dashboard.</p>
+        <ul>
+          <li><strong>Preparation</strong> — operator prepares a source record via the web portal.</li>
+          <li><strong>Authentication</strong> — operator pastes the access token into the client; the system validates against the configuration endpoint.</li>
+          <li><strong>Consumption</strong> — once a new transaction starts, the token is consumed and cannot be reused. Prevents replay attacks.</li>
+        </ul>
+
+        <h3 id="protocols">2.2 Supported Transaction Protocols</h3>
+        <p>The client supports the following internal protocol identifiers. Each describes a different transaction flow.</p>
+        <div class="protocol-grid">
+          <span class="protocol-tag">PROTO-A1</span>
+          <span class="protocol-tag">PROTO-A2</span>
+          <span class="protocol-tag">PROTO-A3</span>
+          <span class="protocol-tag">PROTO-A4</span>
+          <span class="protocol-tag">PROTO-A5</span>
+          <span class="protocol-tag">PROTO-A6</span>
+          <span class="protocol-tag">PROTO-B1</span>
+          <span class="protocol-tag">PROTO-B2</span>
+          <span class="protocol-tag">PROTO-B3</span>
+        </div>
+
+        <h3 id="payouts">2.3 Global Payouts &amp; Settlement</h3>
+        <p>Configured in the client's Settings menu. Two settlement methods are supported:</p>
+        <ul>
+          <li><strong>Crypto Wallet Payout</strong> — split and send funds to receiver and sender addresses on a supported blockchain network.</li>
+          <li><strong>Bank Payout</strong> — initiate a credit transfer to a designated international bank account.</li>
+        </ul>
+
+        <h3 id="bin-checker">2.4 BIN Checker</h3>
+        <p>Retrieves non-sensitive metadata about a card's Bank Identification Number:</p>
+        <ul>
+          <li>Issuing bank verification</li>
+          <li>Card type (Credit, Debit, Prepaid)</li>
+          <li>Card level (Classic, Gold, Platinum, Signature)</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 3: USER GUIDE -->
+      <section id="user-guide" class="docs-section">
+        <h2>3. User Guide (Step-by-Step)</h2>
+
+        <div class="step-block">
+          <span class="step-marker">Step 1</span>
+          <h3>Login and Authentication</h3>
+          <p>Prepare a record in your member portal and copy the generated access token. Launch the desktop client, select your brand, paste your token, and click Login. The client validates the token and checks for updates.</p>
+          <div class="callout">
+            <strong>Troubleshooting.</strong> If login fails: the token is mistyped, expired, already consumed, or the record was not prepared in the web portal.
+          </div>
+        </div>
+
+        <div class="step-block">
+          <span class="step-marker">Step 2</span>
+          <h3>Main System Menu</h3>
+          <p>After successful login you see four options:</p>
+          <ul>
+            <li><strong>NEW TRANSACTIONS</strong> — initiates a new flow. Consumes your token.</li>
+            <li><strong>SYSTEM MAINTENANCE &amp; UPDATES</strong> — checks for the latest version.</li>
+            <li><strong>SETTINGS</strong> — configures default payout method.</li>
+            <li><strong>BIN CHECKER</strong> — opens the BIN utility.</li>
+          </ul>
+        </div>
+
+        <div class="step-block">
+          <span class="step-marker">Step 3</span>
+          <h3>Configure Payout Settings (Optional)</h3>
+          <p>Recommended before your first transaction. Click Settings, choose Crypto Wallet Payout or Bank Payout, and save. Your selection determines which fields appear in the transaction flow.</p>
+        </div>
+
+        <div class="step-block">
+          <span class="step-marker">Step 4</span>
+          <h3>Perform a New Transaction</h3>
           <ol>
-            <li><strong>Preparation</strong> — operator configures a session via the member dashboard.</li>
-            <li><strong>Authentication</strong> — token submitted to the client; validated against the configuration endpoint.</li>
-            <li><strong>Consumption</strong> — token is single-use; consumed upon first transaction to prevent replay.</li>
+            <li>Select the appropriate protocol from the dropdown.</li>
+            <li>Enter the 16-digit card number prepared for this token.</li>
+            <li>Enter the expiry date (MM/YY).</li>
+            <li>Review fetched card details (cardholder name, issuing bank).</li>
+            <li>Fill payout details (bank IBAN/SWIFT or wallet receiver/sender).</li>
+            <li>Enter currency, amount, and settlement split.</li>
+            <li>Enter the approval code (4 or 6 digits depending on protocol).</li>
+            <li>Click Finalize Transaction.</li>
           </ol>
+        </div>
 
-          <h3>2.2. Supported Protocols</h3>
-          <p>The client exposes the following protocol options for selection at transaction time
+        <div class="step-block">
+          <span class="step-marker">Step 5</span>
+          <h3>Processing and Report</h3>
+          <p>The client processes the request and displays a final report with transaction status, transaction ID, and a digital signature for your records.</p>
+        </div>
+
+        <div class="step-block">
+          <span class="step-marker">Step 6</span>
+          <h3>Settlement</h3>
+          <p>If approved, click Proceed to Settlement to see the fund distribution breakdown. After review, close the report and return to the login screen.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 4: INTERNAL ENDPOINTS -->
+      <section id="internal-endpoints" class="docs-section">
+        <h2>4. Internal API Endpoints</h2>
+        <p>The desktop client communicates with the API host. These endpoints are used by the application itself. For public integration, see the Developer API Reference below.</p>
+
+        <div class="table-wrapper">
+          <table class="api-table">
+            <thead>
+              <tr>
+                <th>Endpoint</th>
+                <th>Method</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>/api/get_config</code></td><td><span class="method post">POST</span></td><td>Validates access code. Fetches prepared data. Consumes the token.</td></tr>
+              <tr><td><code>/api/check_update</code></td><td><span class="method get">GET</span></td><td>Checks for the latest application version.</td></tr>
+              <tr><td><code>/api/save_transaction</code></td><td><span class="method post">POST</span></td><td>Saves transaction history to the server.</td></tr>
+              <tr><td><code>/api/reset_card</code></td><td><span class="method post">POST</span></td><td>Clears prepared data after a completed transaction.</td></tr>
+              <tr><td><code>/api/execute_payout</code></td><td><span class="method post">POST</span></td><td>Initiates the payout settlement process.</td></tr>
+              <tr><td><code>/actions/bin_checker</code></td><td><span class="method post">POST</span></td><td>Internal BIN checker endpoint used by the client.</td></tr>
+              <tr><td><code>/api/public/v1/*</code></td><td><span class="method post">POST</span>/<span class="method get">GET</span></td><td>Public API for third-party integration.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- DIVIDER -->
+      <div class="section-divider"><span>Developer API Reference</span></div>
+
+      <!-- SECTION 5: API INTRO -->
+      <section id="api-intro" class="docs-section">
+        <span class="section-badge">API Reference</span>
+        <h2>1. Introduction</h2>
+        <p>The public API provides programmatic access to the platform. Integrate using any HTTP client — Python, PHP, Node.js, cURL, or your preferred language.</p>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <h5>Base URL</h5>
+            <code>https://api.your-brand.com/api/public/v1/</code>
+          </div>
+          <div class="info-card">
+            <h5>Content Type</h5>
+            <code>application/json</code>
+          </div>
+          <div class="info-card">
+            <h5>Example Scripts</h5>
+            <code>/api/public/v1/examples/</code>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: SANDBOX VS LIVE -->
+      <section id="api-modes" class="docs-section">
+        <h2>2. Sandbox vs Live Mode</h2>
+        <div class="table-wrapper">
+          <table class="api-table">
+            <thead>
+              <tr><th>Mode</th><th>Description</th><th>Test Credentials</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="mode-pill sandbox">Sandbox</span></td>
+                <td>Test without real tokens. No transactions are processed.</td>
+                <td><code>access_code: "SANDBOX"</code><br/><code>member_id: 0</code></td>
+              </tr>
+              <tr>
+                <td><span class="mode-pill live">Live</span></td>
+                <td>Process real transactions. Requires verified access token.</td>
+                <td>Prepared in member dashboard</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 7: INTEGRATION FLOW -->
+      <section id="api-flow" class="docs-section">
+        <h2>3. Integration Flow</h2>
+        <p>The standard integration flow follows these steps:</p>
+        <ol class="numbered-steps">
+          <li>Prepare data record in the member dashboard.</li>
+          <li>Call <code>/get_token_details</code> with the access code to confirm session data.</li>
+          <li>Call <code>/process_transaction</code> with the required fields.</li>
+          <li>Poll <code>/transaction_status</code> until a final state is returned.</li>
+          <li>Retrieve settlement report via <code>/settlement</code>.</li>
+        </ol>
+      </section>
+
+      <!-- SECTION 8: GET TOKEN -->
+      <section id="api-token" class="docs-section">
+        <h2>4. Get Token Details</h2>
+        <p>Validates an access code and returns prepared session data.</p>
+
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method post">POST</span>
+            <code>/api/public/v1/get_token_details</code>
+          </div>
+          <h5>Request</h5>
+<pre><code>{
+  "access_code": "YOUR_ACCESS_CODE",
+  "member_id": 12345
+}</code></pre>
+          <h5>Response</h5>
+<pre><code>{
+  "status": "success",
+  "session": {
+    "cardholder_name": "string",
+    "issuing_bank": "string",
+    "expires_at": "ISO-8601 timestamp"
+  }
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- SECTION 9: PROCESS TRANSACTION -->
+      <section id="api-process" class="docs-section">
+        <h2>5. Process Transaction</h2>
+        <p>Initiates a transaction with the provided parameters.</p>
+
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method post">POST</span>
+            <code>/api/public/v1/process_transaction</code>
+          </div>
+          <h5>Request</h5>
+<pre><code>{
+  "access_code": "YOUR_ACCESS_CODE",
+  "protocol": "PROTO-A1",
+  "amount": 1000.00,
+  "currency": "USD",
+  "payout_method": "bank",
+  "payout_details": { /* method-specific fields */ }
+}</code></pre>
+          <h5>Response</h5>
+<pre><code>{
+  "status": "approved | declined | pending",
+  "transaction_id": "TXN-...",
+  "signature": "sha256-hash"
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- SECTION 10: LIST PROTOCOLS -->
+      <section id="api-protocols" class="docs-section">
+        <h2>6. List Protocols</h2>
+        <p>Returns the currently supported protocol identifiers for your account.</p>
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method get">GET</span>
+            <code>/api/public/v1/protocols</code>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 11: BIN CHECKER -->
+      <section id="api-bin" class="docs-section">
+        <h2>7. BIN Checker</h2>
+        <p>Returns non-sensitive metadata for a given BIN.</p>
+        <div class="endpoint-card">
+          <div class="endpoint-header">
+            <span class="method post">POST</span>
+            <code>/api/public/v1/bin_checker</code>
+          </div>
+          <h5>Request</h5>
+<pre><code>{
+  "bin": "411111"
+}</code></pre>
+          <h5>Response</h5>
+<pre><code>{
+  "bank": "string",
+  "type": "credit | debit | prepaid",
+  "level": "classic | gold | platinum | signature",
+  "country": "ISO-3166 alpha-2"
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- SECTION 12: RESPONSE CODES -->
+      <section id="api-codes" class="docs-section">
+        <h2>8. Response Codes</h2>
+        <div class="table-wrapper">
+          <table class="api-table">
+            <thead>
+              <tr><th>Code</th><th>Status</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>200</code></td><td><span class="status ok">OK</span></td><td>Request successful.</td></tr>
+              <tr><td><code>400</code></td><td><span class="status warn">Bad Request</span></td><td>Missing or malformed parameter.</td></tr>
+              <tr><td><code>401</code></td><td><span class="status warn">Unauthorized</span></td><td>Invalid or expired access code.</td></tr>
+              <tr><td><code>403</code></td><td><span class="status warn">Forbidden</span></td><td>Operation not permitted on this account.</td></tr>
+              <tr><td><code>409</code></td><td><span class="status warn">Conflict</span></td><td>Token already consumed.</td></tr>
+              <tr><td><code>429</code></td><td><span class="status warn">Rate Limited</span></td><td>Too many requests. Back off and retry.</td></tr>
+              <tr><td><code>500</code></td><td><span class="status err">Server Error</span></td><td>Internal failure. Retry with exponential backoff.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 13: EXAMPLE CODE -->
+      <section id="api-examples" class="docs-section">
+        <h2>9. Example Code</h2>
+
+        <div class="tab-block">
+          <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="python">Python</button>
+            <button class="tab-btn" data-tab="node">Node.js</button>
+            <button class="tab-btn" data-tab="curl">cURL</button>
+          </div>
+
+          <div class="tab-pane active" data-tab="python">
+<pre><code>import requests
+
+API_BASE = "https://api.your-brand.com/api/public/v1"
+
+resp = requests.post(
+    f"{API_BASE}/process_transaction",
+    json={
+        "access_code": "YOUR_ACCESS_CODE",
+        "protocol": "PROTO-A1",
+        "amount": 1000.00,
+        "currency": "USD",
+        "payout_method": "bank",
+    },
+)
+print(resp.json())</code></pre>
+          </div>
+
+          <div class="tab-pane" data-tab="node">
+<pre><code>const fetch = require("node-fetch");
+
+const API_BASE = "https://api.your-brand.com/api/public/v1";
+
+const res = await fetch(`${API_BASE}/process_transaction`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    access_code: "YOUR_ACCESS_CODE",
+    protocol: "PROTO-A1",
+    amount: 1000.0,
+    currency: "USD",
+    payout_method: "bank",
+  }),
+});
+console.log(await res.json());</code></pre>
+          </div>
+
+          <div class="tab-pane" data-tab="curl">
+<pre><code>curl -X POST https://api.your-brand.com/api/public/v1/process_transaction \
+  -H "Content-Type: application/json" \
+  -d '{
+    "access_code": "YOUR_ACCESS_CODE",
+    "protocol": "PROTO-A1",
+    "amount": 1000.00,
+    "currency": "USD",
+    "payout_method": "bank"
+  }'</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM CTAs -->
+      <div class="docs-bottom-ctas">
+        <a href="/articles.html" class="btn btn-outline">← Back to Articles</a>
+        <a href="/#pricing" class="btn btn-primary">Request Access →</a>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>© 2026 Your Brand. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/global.js"></script>
+  <script src="js/docs.js"></script>
+</body>
+</html>
