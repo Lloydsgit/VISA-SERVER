@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Real Card Transaction Protocols Work — A Walkthrough | YOUR BRAND</title>
+  <meta name="description" content="A plain-English walkthrough of how a card transaction actually moves from terminal to issuer to settlement, with the real protocol stack explained." />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/article.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="announcement-bar">
+    <p>New article series live — <a href="/articles.html">Browse all articles →</a></p>
+  </div>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">YOUR BRAND</a>
+      <nav class="nav-links">
+        <a href="/#overview">Overview</a>
+        <a href="/#benefits">Benefits</a>
+        <a href="/#flow">Flow</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#chart">Market Chart</a>
+        <a href="/articles.html">Articles</a>
+        <a href="/docs.html">Docs</a>
+      </nav>
+      <a href="/login" class="btn btn-primary">Client Login</a>
+      <button class="hamburger" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <main class="article-page">
+    <div class="container">
+
+      <nav class="breadcrumbs animate-fade">
+        <a href="/">Home</a>
+        <span class="separator">/</span>
+        <a href="/articles.html">Articles</a>
+        <span class="separator">/</span>
+        <span>How Card Transaction Protocols Work</span>
+      </nav>
+
+      <header class="article-header animate-in">
+        <h1 class="article-title">How Card Transaction Protocols Actually Work: A Walkthrough</h1>
+        <div class="article-meta">
+          <span class="tag">Platform Guide</span>
+          <span>Published: August 20, 2025</span>
+          <span>Read time: ~9 min</span>
+        </div>
+      </header>
+
+      <div class="article-layout animate-in delay-1">
+
+        <aside class="toc">
+          <h4>On This Page</h4>
+          <ul>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#stack">The Real Protocol Stack</a></li>
+            <li><a href="#iso-8583">ISO 8583: The Card Wire Format</a></li>
+            <li><a href="#mti">Message Types and Bitmaps</a></li>
+            <li><a href="#emv">EMV: The Chip Layer</a></li>
+            <li><a href="#flow">The Full Transaction Flow</a></li>
+            <li><a href="#authorization">Authorization vs Clearing vs Settlement</a></li>
+            <li><a href="#reversals">Reversals and Chargebacks</a></li>
+            <li><a href="#response-codes">Common Response Codes</a></li>
+            <li><a href="#glossary">Glossary</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </aside>
+
+        <article class="article-body">
+
+          <section id="summary">
+            <h2>Summary</h2>
+            <p>
+              Every card swipe, dip, tap, or online checkout in the world rides on a stack of protocols that has been stable for forty years. The wire format is ISO 8583. The chip layer is EMV. The authorization travels through a card network like Visa or Mastercard to an issuer, which decides yes or no in under a second. Settlement happens later, in batches.
+            </p>
+            <p>
+              This guide unpacks that stack in plain English. It covers what the protocols are, what the message fields mean, how authorization differs from settlement, and how reversals and chargebacks fit in. Skim the glossary at the bottom when an acronym blurs together.
+            </p>
+          </section>
+
+          <section id="stack">
+            <h2>The Real Protocol Stack</h2>
+            <p>
+              When people say "card transaction," they usually mean the entire chain. But the chain is made of distinct layers, each governed by its own standard. Here's the actual stack from the top of the card down to settlement:
+            </p>
+            <ul>
+              <li><strong>EMV</strong> — the chip-card standard from EMVCo (Europay, Mastercard, Visa). Defines how the physical chip and the terminal talk to each other.</li>
+              <li><strong>ISO 8583</strong> — the message format used between acquirer, network, and issuer to authorize the transaction.</li>
+              <li><strong>Card network rails</strong> — VisaNet, Mastercard MIP, American Express, Discover, JCB, UnionPay, RuPay. The physical and logical infrastructure that routes the ISO 8583 messages.</li>
+              <li><strong>Clearing files</strong> — daily batch files (Visa BASE II, Mastercard CIS) that move authorized transactions toward settlement.</li>
+              <li><strong>Settlement</strong> — the actual cash movement between banks, typically T+1 or T+2 via central bank rails.</li>
+            </ul>
+            <div class="callout">
+              <strong>Important.</strong> There is no "cloud bypass" layer in this stack. Every legitimate transaction follows this path. Anyone offering to skip steps is either talking about something else or describing fraud.
+            </div>
+          </section>
+
+          <section id="iso-8583">
+            <h2>ISO 8583: The Card Wire Format</h2>
+            <p>
+              ISO 8583 is the international standard that defines what a card transaction message looks like. It was first published in 1987 and has remained the backbone of card payments ever since. Every Visa, Mastercard, Amex, and domestic card switch in the world speaks some flavor of it.
+            </p>
+            <p>
+              An ISO 8583 message is a binary structure with three parts: a message type indicator (MTI), a bitmap describing which fields are present, and the field values themselves. There can be up to 128 data elements (DEs) in a message, each carrying a specific piece of information like the card number, amount, terminal ID, or response code.
+            </p>
+            <h3>Common Data Elements</h3>
+            <table>
+              <thead>
+                <tr><th>Field</th><th>Purpose</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>DE2</td><td>Primary account number (PAN)</td></tr>
+                <tr><td>DE3</td><td>Processing code (what kind of transaction)</td></tr>
+                <tr><td>DE4</td><td>Transaction amount</td></tr>
+                <tr><td>DE7</td><td>Transmission date and time</td></tr>
+                <tr><td>DE11</td><td>System trace audit number (STAN)</td></tr>
+                <tr><td>DE37</td><td>Retrieval reference number (RRN)</td></tr>
+                <tr><td>DE38</td><td>Authorization code (6 digits)</td></tr>
+                <tr><td>DE39</td><td>Response code (00 = approved, 05 = declined, etc.)</td></tr>
+                <tr><td>DE41</td><td>Terminal ID</td></tr>
+                <tr><td>DE42</td><td>Merchant ID</td></tr>
+                <tr><td>DE49</td><td>Currency code</td></tr>
+                <tr><td>DE55</td><td>EMV chip data</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="mti">
+            <h2>Message Types and Bitmaps</h2>
+            <p>
+              The MTI is a four-digit number that tells the receiver what kind of message this is. The first digit is the version, the second is the class (authorization, financial, reversal, etc.), the third is the function (request, response, advice), and the fourth is the origin.
+            </p>
+            <table>
+              <thead>
+                <tr><th>MTI</th><th>Meaning</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>0100</td><td>Authorization request</td></tr>
+                <tr><td>0110</td><td>Authorization response</td></tr>
+                <tr><td>0200</td><td>Financial transaction request</td></tr>
+                <tr><td>0210</td><td>Financial transaction response</td></tr>
+                <tr><td>0400</td><td>Reversal request</td></tr>
+                <tr><td>0420</td><td>Reversal advice</td></tr>
+                <tr><td>0800</td><td>Network management request</td></tr>
+                <tr><td>0810</td><td>Network management response</td></tr>
+              </tbody>
+            </table>
+            <p>
+              The bitmap is a 64-bit (or 128-bit if a secondary bitmap is needed) sequence where each bit represents whether a particular data element is present in the message. This is what makes ISO 8583 efficient: only the fields actually used are transmitted.
+            </p>
+          </section>
+
+          <section id="emv">
+            <h2>EMV: The Chip Layer</h2>
+            <p>
+              Below the wire format sits the chip-card protocol itself. EMV defines how the chip on your card communicates with the terminal during a card-present transaction. It generates dynamic cryptograms that change with every transaction, which is what makes chip cards far harder to clone than the old magnetic stripe.
+            </p>
+            <h3>Key EMV Concepts</h3>
+            <ul>
+              <li><strong>ARQC</strong> — Authorization Request Cryptogram. Generated by the chip using a session key, sent to the issuer to prove the card is genuine.</li>
+              <li><strong>ARPC</strong> — Authorization Response Cryptogram. The issuer's reply, also cryptographic, which the terminal verifies before completing the transaction.</li>
+              <li><strong>CAPK</strong> — Certification Authority Public Keys. The RSA roots stored in the terminal that verify the card's signed data.</li>
+              <li><strong>CVM</strong> — Cardholder Verification Method. PIN, signature, no-CVM, or mobile biometric, in priority order defined on the chip.</li>
+              <li><strong>Tokenization</strong> — replaces the PAN with a network token (Visa VTS, Mastercard MDES) so the real card number never touches the merchant.</li>
+            </ul>
+            <div class="callout">
+              <strong>Liability shift.</strong> In most regions, if a chip card is used at a chip-capable terminal and fraud occurs, the issuer is liable. If the merchant falls back to magnetic stripe when EMV was available, the merchant is liable. This is why "EMV fallback" transactions are flagged aggressively by fraud systems.
+            </div>
+          </section>
+
+          <section id="flow">
+            <h2>The Full Transaction Flow</h2>
+            <p>
+              Here's what actually happens when you tap your card at a coffee shop, in plain sequence:
+            </p>
+            <ol>
+              <li><strong>Cardholder presents card</strong> — chip read, contactless tap, or card-not-present checkout submits PAN and expiry.</li>
+              <li><strong>Terminal/gateway constructs ISO 8583 0100</strong> — authorization request with PAN, amount, terminal ID, EMV cryptogram (if chip).</li>
+              <li><strong>Acquirer processor receives the request</strong> — runs basic validation, fraud scoring, then forwards to the card network.</li>
+              <li><strong>Network routes to the issuer</strong> — based on the BIN (first 6 digits of the PAN).</li>
+              <li><strong>Issuer decides</strong> — checks available balance, daily limits, fraud rules, sanctions lists, EMV cryptogram validity. Returns approve or decline.</li>
+              <li><strong>0110 response travels back</strong> — issuer → network → acquirer → terminal. End-to-end usually under one second.</li>
+              <li><strong>Terminal prints receipt</strong> — transaction is authorized but not yet cleared or settled.</li>
+              <li><strong>End of day batch</strong> — acquirer submits clearing files to the network via Visa BASE II or Mastercard CIS.</li>
+              <li><strong>Network presents to issuer</strong> — issuer confirms the clearing record matches the earlier authorization.</li>
+              <li><strong>Settlement</strong> — funds move between issuer and acquirer banks via central bank settlement rails. Usually T+1 or T+2.</li>
+              <li><strong>Merchant gets paid</strong> — the acquirer credits the merchant's account, minus interchange and assessment fees.</li>
+            </ol>
+          </section>
+
+          <section id="authorization">
+            <h2>Authorization vs Clearing vs Settlement</h2>
+            <p>
+              Three distinct events. Beginners often confuse them.
+            </p>
+            <table>
+              <thead>
+                <tr><th>Step</th><th>What Happens</th><th>When</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Authorization</strong></td>
+                  <td>Issuer says "yes, this transaction is approved" and places a hold on the cardholder's available balance.</td>
+                  <td>At the moment of the transaction (real-time, sub-second)</td>
+                </tr>
+                <tr>
+                  <td><strong>Clearing</strong></td>
+                  <td>The merchant submits the transaction to the network for processing. Authorization holds become real charges.</td>
+                  <td>End of day, batch</td>
+                </tr>
+                <tr>
+                  <td><strong>Settlement</strong></td>
+                  <td>Money actually moves between issuer and acquirer banks.</td>
+                  <td>T+1 or T+2 typically</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="callout">
+              <strong>Why it matters.</strong> A merchant getting a 0110 "approved" response doesn't have the money yet. They have a promise. Real cash arrives at settlement, days later. This is where chargebacks become possible — they're disputes against transactions that have authorized but not yet been finalized in the customer's favor.
+            </div>
+          </section>
+
+          <section id="reversals">
+            <h2>Reversals and Chargebacks</h2>
+            <p>
+              Things go wrong. The protocol stack has defined paths for each kind of correction.
+            </p>
+            <h3>Reversal (0400 / 0420)</h3>
+            <p>
+              A reversal happens when the merchant or acquirer cancels a transaction before it clears. Common reasons: terminal timeout, customer cancels, duplicate charge detected. The 0400 message asks the issuer to release the authorization hold.
+            </p>
+            <h3>Refund</h3>
+            <p>
+              A new transaction in the opposite direction. Initiated by the merchant after clearing, usually for returned goods. The cardholder sees a credit on their statement.
+            </p>
+            <h3>Chargeback</h3>
+            <p>
+              A dispute initiated by the cardholder through their issuer. The issuer pulls funds back from the acquirer until the merchant either provides evidence (representment) or accepts the loss. Each card network has detailed chargeback reason codes governing what's disputable and what's not.
+            </p>
+          </section>
+
+          <section id="response-codes">
+            <h2>Common Response Codes (DE39)</h2>
+            <table>
+              <thead>
+                <tr><th>Code</th><th>Meaning</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>00</td><td>Approved</td></tr>
+                <tr><td>01</td><td>Refer to issuer</td></tr>
+                <tr><td>05</td><td>Do not honor (most common decline)</td></tr>
+                <tr><td>14</td><td>Invalid card number</td></tr>
+                <tr><td>41</td><td>Lost card, pick up</td></tr>
+                <tr><td>43</td><td>Stolen card, pick up</td></tr>
+                <tr><td>51</td><td>Insufficient funds</td></tr>
+                <tr><td>54</td><td>Expired card</td></tr>
+                <tr><td>55</td><td>Incorrect PIN</td></tr>
+                <tr><td>57</td><td>Transaction not permitted to cardholder</td></tr>
+                <tr><td>61</td><td>Exceeds withdrawal limit</td></tr>
+                <tr><td>91</td><td>Issuer unavailable</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="glossary">
+            <h2>Glossary</h2>
+            <table>
+              <thead>
+                <tr><th>Term</th><th>Meaning</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>PAN</td><td>Primary Account Number — the 16-digit card number.</td></tr>
+                <tr><td>BIN</td><td>Bank Identification Number — first 6 digits of the PAN, identifies the issuer.</td></tr>
+                <tr><td>Acquirer</td><td>The merchant's bank that receives card payments on their behalf.</td></tr>
+                <tr><td>Issuer</td><td>The bank that issued the card to the cardholder.</td></tr>
+                <tr><td>Interchange</td><td>The fee paid by the acquirer to the issuer on each transaction.</td></tr>
+                <tr><td>Network token</td><td>A surrogate value that replaces the PAN in storage and transmission.</td></tr>
+                <tr><td>STAN</td><td>System Trace Audit Number — short transaction identifier.</td></tr>
+                <tr><td>RRN</td><td>Retrieval Reference Number — longer, network-unique transaction identifier.</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <h3>Why is there both an authorization and a settlement step?</h3>
+            <p>
+              Speed and risk. Authorization happens in under a second so the merchant knows immediately whether to release goods. Settlement is a slower, batch-oriented process because moving real money between banks takes coordination and reconciliation. Splitting the two lets the card networks be both fast at the point of sale and accurate at the point of payment.
+            </p>
+
+            <h3>Can a transaction be authorized but never settle?</h3>
+            <p>
+              Yes. If the merchant never submits the transaction for clearing (within a defined window, usually 7 to 30 days), the authorization hold expires and the funds return to the cardholder's available balance. This is rare but not impossible.
+            </p>
+
+            <h3>What's the difference between a credit card and a debit card transaction at the protocol level?</h3>
+            <p>
+              At the ISO 8583 layer, very little. The processing code (DE3) and the BIN both tell the network whether the card is credit, debit, or prepaid. The issuer's response logic differs (debit checks the actual balance, credit checks the available credit line), but the wire format is the same.
+            </p>
+
+            <h3>What protocol does an online checkout use?</h3>
+            <p>
+              The same ISO 8583 stack on the back end. The front end uses a payment gateway API (Stripe, Adyen, Razorpay) over HTTPS, but once the gateway receives the card details, it constructs an ISO 8583 message to send through the network. The customer never sees the underlying protocol, but it's the same rails.
+            </p>
+          </section>
+
+          <div style="display:flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid var(--border);">
+            <a href="article-l2l-ilp.html" class="btn btn-outline">← Previous: L2L &amp; ILP</a>
+            <a href="article-mt103.html" class="btn btn-primary">Next: MT103 Explained →</a>
+          </div>
+
+        </article>
+      </div>
+
+      <section style="margin-top: var(--space-3xl); padding-top: var(--space-xl); border-top: 1px solid var(--border);">
+        <h3 style="font-size: 20px; margin-bottom: var(--space-lg); color: var(--text-primary);">Related Reading</h3>
+        <div class="articles-grid">
+
+          <a href="article-mt103.html" class="article-card">
+            <span class="tag">Industry Knowledge</span>
+            <time>August 24, 2025</time>
+            <h3>What is an MT103 Document?</h3>
+            <p>The SWIFT message format that powers most cross-border bank transfers.</p>
+            <span class="read-more">Read More →</span>
+          </a>
+
+          <a href="article-ipip-ipid-stos.html" class="article-card">
+            <span class="tag">Industry Knowledge</span>
+            <time>January 3, 2026</time>
+            <h3>Understanding IPIP, IPID, and StoS Transfers</h3>
+            <p>Key concepts in banking protocols explained simply.</p>
+            <span class="read-more">Read More →</span>
+          </a>
+
+          <a href="article-l2l-ilp.html" class="article-card">
+            <span class="tag">Industry Knowledge</span>
+            <time>May 14, 2026</time>
+            <h3>Ledger to Ledger (L2L) and the Interledger Protocol</h3>
+            <p>A plain-English guide to how banks move money between ledgers.</p>
+            <span class="read-more">Read More →</span>
+          </a>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>© 2026 Your Brand. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/global.js"></script>
+</body>
+</html>
